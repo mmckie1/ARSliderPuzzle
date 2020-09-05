@@ -82,6 +82,7 @@
 			for (let y = 0; y < numRow; ++y) {
 				ctx.drawImage(image, x * pieceWidth, y * pieceHeigth, pieceWidth, pieceHeigth, 0, 0, canvas.width, canvas.height);
 				imgPieces[8 - pieces] = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+				console.log(imgPieces);
 				pieces = pieces - 3;
 				if (pieces < 0) {
 					pieces = (puzzlePieces - 1) + pieces;
