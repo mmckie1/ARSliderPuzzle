@@ -5,7 +5,7 @@
 	let constraints, imageCapture, mediaStream, video;
 
 	//Puzzle Vars
-	const markers = document.querySelectorAll('a-marker'),
+	const markers = document.querySelectorAll(`a-marker`),
 		numCol = 3, numRow = 3,
 		puzzlePieces = numCol * numRow,
 		tolerance = 1.9;
@@ -18,12 +18,12 @@
 
 
 	const init = () => {
-		video = document.querySelector('video');
+		video = document.querySelector(`video`);
 		navigator.mediaDevices.enumerateDevices()
 			.catch(error => console.log('enumerateDevices() error', error))
 			.then(getStream);
 
-		takePhotoButton.addEventListener('click', getPicture);
+		takePhotoButton.addEventListener(`click`, getPicture);
 	} 
 
 	//Get a video stream from the camera
@@ -51,7 +51,7 @@
 	const gotStream = stream => {
 		mediaStream = stream;
 		video.srcObject = stream;
-		imageCapture = new ImageCapture(stream.getVideoTrakcs()[0]);
+		imageCapture = new ImageCapture(stream.getVideoTracks()[0]);
 
 	};
 
@@ -72,7 +72,7 @@
 
 	const createImagePieces = image => {
 
-		const canvas = document.createElement('canvas');
+		const canvas = document.createElement(`canvas`);
 		const ctx = canvas.getContext('2d');
 		const pieceWidth = image.width / numCol;
 		const pieceHeigth = image.height /numRow;
@@ -92,7 +92,7 @@
 		};
 
 		markers.forEach((marker, i) => {
-			const aImg = document.createElement('a-image');
+			const aImg = document.createElement(`a-image`);
 
 			aImg.setAttribute(`rotation`, `-90 0 0`);
 			aImg.setAttribute(`position`, `0 0 0`);
