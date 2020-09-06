@@ -135,7 +135,7 @@
 			}
 
 			if(check.every(puzzleCheck)) {
-				consle.log('Solved!!!');
+				console.log('Solved!!!');
 				const solved = document.querySelector(`.solved`);
 				solved.style.display = "flex";
 			}
