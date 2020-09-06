@@ -57,7 +57,7 @@
 
 	//Take the picture 
 	const getPicture = () => { 
-		shuffle(puzzle);
+		//shuffle(puzzle);
 		imageCapture.takePhoto()
 			.then((img) => {
 				image.src = URL.createObjectURL(img);
@@ -111,10 +111,10 @@
 		}
 
 		if(positionMarkers[puzzle[0]].position.x - positionMarkers[puzzle[8]].position.x !== 0){
-			for(let i = 0; i < numRow; ++i) {
-				if(Math.abs(positionMarkers[puzzle[0 + (3 * i)]].position.x - positionMarkers[puzzle[1 + (3 * i)]].position.x) < tolerance && 
+			for(let i = 0; i < numRow; ++i){
+				if(Math.abs(positionMarkers[puzzle[0 + (3 * i)]].position.x - positionMarkers[puzzle[1+ (3 * i)]].position.x) < tolerance && 
 					Math.abs(positionMarkers[puzzle[1 + (3 * i)]].position.x - positionMarkers[puzzle[2 + (3 * i)]].position.x) < tolerance &&
-					Math.abs(positionMarkers[puzzle[0 + (3 * i)]].rotation.x - positionMarkers[puzzle[1 + (3 * i)]].rotation.x) < tolerance &&
+					Math.abs(positionMarkers[puzzle[0 + (3 * i)]].rotation.x - positionMarkers[puzzle[1+ (3 * i)]].rotation.x) < tolerance &&
 					Math.abs(positionMarkers[puzzle[1 + (3 * i)]].rotation.x - positionMarkers[puzzle[2 + (3 * i)]].rotation.x) < tolerance) {
 
 					check[i] = true;
@@ -137,8 +137,10 @@
 			if(check.every(puzzleCheck)) {
 				consle.log('Solved!!!');
 				const solved = document.querySelector(`.solved`);
-				solved.style.display = "flex"; 
+				solved.style.display = "flex";
 			}
+
+
 
 
 
@@ -148,8 +150,25 @@
 
 	}
 
-
 	const puzzleCheck = check => check === true;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
